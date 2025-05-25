@@ -1,0 +1,12 @@
+Summary for Postman
+API	Method	URL	Auth Header	Body Type
+Register User	POST	/api/auth/register	No	JSON
+Login User	POST	/api/auth/login	No	JSON
+Get User Profile	GET	/api/user/profile	Bearer Token (User)	None
+Update User Profile	PUT	/api/user/profile-update	Bearer Token (User)	JSON
+Upload Skill Offer	POST	/api/skills/upload	Bearer Token (User)	Form-data + File
+Get All Skill Offers	GET	/api/skills/all	No	None
+User Dashboard	GET	/api/user/dashboard	Bearer Token (User)	None
+Admin Login	POST	/api/admin/login	No	JSON
+Get All Users (Admin)	GET	/api/admin/users	Bearer Token (Admin)	None
+Get All Skill Offers (Admin)	GET	/api/admin/skills	Bearer Token (Admin)	None

@@ -1,4 +1,4 @@
-const SwapRequest = require("../models/SwapRequest");
+const SwapRequest = require("../models/swapRequest");
 
 // Send new swap request
 exports.sendRequest = async (req, res) => {

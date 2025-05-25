@@ -8,10 +8,25 @@ const app = express();
 
 connectDB();
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'https://note-vault-woad.vercel.app'
+];
+
 app.use(cors({
-  origin: "http://localhost:5173", // ✅ specify your frontend URL here
-  credentials: true                // ✅ allow credentials (cookies, auth headers)
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // Allow server-to-server or Postman
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+  },
+  credentials: true,
 }));
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
